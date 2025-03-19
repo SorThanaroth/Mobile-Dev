@@ -9,6 +9,14 @@ Future<void> _launchFacebook() async {
   }
 }
 
+Future<void> _launchLinkedIn() async {
+  final Uri cvUrl = Uri.parse('https://www.linkedin.com'); // Replace with your actual LinkedIn URL
+
+  if (!await launchUrl(cvUrl, mode: LaunchMode.externalApplication)) {
+    debugPrint('Could not launch $cvUrl');
+  }
+}
+
 void main() {
   runApp(const MyApp());
 }
@@ -152,7 +160,7 @@ class PortfolioPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: OutlinedButton(
-                        onPressed: () {},
+                        onPressed: _launchLinkedIn,
                         style: OutlinedButton.styleFrom(
                           side: const BorderSide(color: Colors.blue),
                           minimumSize: const Size(double.infinity, 55),
